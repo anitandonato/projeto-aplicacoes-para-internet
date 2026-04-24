@@ -15,15 +15,13 @@ Apresenta os serviços (corte, barba e combo), seção sobre a barbearia e infor
 
 Abra o arquivo `index.html` diretamente no navegador, ou acesse o site publicado:
 
-🔗 **[Ver projeto online](https://anitandonato/barbearia-classica/)**
+🔗 **[Ver projeto online]([https://anitandonato/barbearia-classica/](https://anitandonato.github.io/projeto-aplicacoes-para-internet/))**
 
 ## Screenshots
 
 | Mobile (375px) | Tablet (768px) | Desktop (1280px) |
 |:-:|:-:|:-:|
-| <img width="750" height="1536" alt="127 0 0 1_5500_index html" src="https://github.com/user-attachments/assets/4290eaaf-6214-4f29-9e0b-57c91e8ccfc7" />
-| <img width="1536" height="1536" alt="127 0 0 1_5500_index html (1)" src="https://github.com/user-attachments/assets/b8f8d593-ad41-46a4-9adb-87302bb6a3e2" />
-| <img width="2560" height="1536" alt="127 0 0 1_5500_index html (2)" src="https://github.com/user-attachments/assets/16deaec0-54f8-4c2a-be9f-f90c352b47ad" />
+ <img width="250" alt="Mobile 375px" src="https://github.com/user-attachments/assets/4290eaaf-6214-4f29-9e0b-57c91e8ccfc7" /> | <img width="250" alt="Tablet 768px" src="https://github.com/user-attachments/assets/b8f8d593-ad41-46a4-9adb-87302bb6a3e2" /> | <img width="250" alt="Desktop 1280px" src="https://github.com/user-attachments/assets/16deaec0-54f8-4c2a-be9f-f90c352b47ad" /> |
 
 
 ## Tecnologias
