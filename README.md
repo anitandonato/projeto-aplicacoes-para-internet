@@ -2,7 +2,7 @@
 
 Projeto desenvolvido para a disciplina **Aplicações para Internet** (2ª Avaliação).
 
-**Trio:** Gabriel Guilherme Gomes Regis da Silva
+**Trio:** Gabriel Guilherme Gomes, Anita Alves e Maria Mariah Queiroga 
 
 ---
 
