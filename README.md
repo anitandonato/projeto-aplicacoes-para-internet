@@ -15,7 +15,7 @@ Apresenta os serviços (corte, barba e combo), seção sobre a barbearia e infor
 
 Abra o arquivo `index.html` diretamente no navegador, ou acesse o site publicado:
 
-🔗 **[Ver projeto online]([https://anitandonato/barbearia-classica/](https://anitandonato.github.io/projeto-aplicacoes-para-internet/))**
+🔗 **[Ver projeto online](https://anitandonato.github.io/projeto-aplicacoes-para-internet/)**
 
 ## Screenshots
 
