@@ -1,0 +1,725 @@
+/* =====================================================
+   BARBEARIA CLÁSSICA — style.css
+   Disciplina: Aplicações para Internet — Etapa 1
+   Abordagem: Mobile-First | Flexbox + Grid | Clamp
+   ===================================================== */
+
+/* === VARIÁVEIS E TOKENS DE DESIGN === */
+:root {
+  /* Paleta */
+  --color-bg: #111111;
+  --color-surface: #1e1e1e;
+  --color-surface-alt: #252525;
+  --color-accent: #c9a84c;
+  --color-accent-hover: #e0bf6a;
+  --color-text: #f0f0f0;
+  --color-text-muted: #aaaaaa;
+  --color-border: #333333;
+
+  /* Breakpoints (referência — não funcionam em @media) */
+  /* --bp-sm: 480px; --bp-md: 768px; --bp-lg: 1024px; --bp-xl: 1280px; */
+
+  /* Tipografia fluida */
+  --fs-base: clamp(0.9rem, 2vw, 1rem);
+  --fs-h1:   clamp(1.75rem, 5vw, 3rem);
+  --fs-h2:   clamp(1.375rem, 3vw, 2rem);
+  --fs-h3:   clamp(1.1rem, 2.5vw, 1.375rem);
+
+  /* Espaçamentos */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 64px;
+
+  /* Bordas e sombras */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+  /* Transições */
+  --transition: 0.25s ease;
+}
+
+/* === RESET E BASE === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Imagens responsivas — obrigatório */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Inputs responsivos — obrigatório */
+input,
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Foco visível para acessibilidade por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+label:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Desabilita animações para usuários com prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* === UTILITÁRIOS === */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-sm);
+}
+
+.destaque {
+  color: var(--color-accent);
+}
+
+/* === BOTÕES === */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
+  border: 2px solid transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primario {
+  background-color: var(--color-accent);
+  color: #111111;
+  border-color: var(--color-accent);
+}
+
+.btn--primario:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.btn--secundario {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn--secundario:hover {
+  background-color: var(--color-accent);
+  color: #111111;
+}
+
+.btn--card {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  width: 100%;
+  text-align: center;
+}
+
+.btn--card:hover {
+  background-color: var(--color-accent);
+  color: #111111;
+}
+
+/* === SEÇÕES — TÍTULOS COMUNS === */
+.secao__titulo {
+  font-size: var(--fs-h2);
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.secao__subtitulo {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* ==============================================
+   HEADER — MOBILE FIRST (coluna única)
+   ============================================== */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  transition: color var(--transition);
+}
+
+.logo:hover {
+  color: var(--color-accent);
+}
+
+.logo__icone {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+}
+
+.logo__nome strong {
+  color: var(--color-accent);
+}
+
+/* Hamburguer — oculto em desktop */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: var(--space-xs);
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Navegação — mobile: links em linha com wrap */
+.nav__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs) var(--space-sm);
+}
+
+.nav__link {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  padding: 0.25rem var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition);
+}
+
+.nav__link:hover {
+  color: var(--color-accent);
+}
+
+.nav__link--cta {
+  background-color: var(--color-accent);
+  color: #111111;
+  padding: 0.25rem var(--space-sm);
+  border-radius: var(--radius-md);
+  font-weight: bold;
+}
+
+.nav__link--cta:hover {
+  background-color: var(--color-accent-hover);
+  color: #111111;
+}
+
+/* ==============================================
+   HERO — MOBILE FIRST (coluna única)
+   ============================================== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl) var(--space-sm);
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface) 100%);
+  min-height: 60vh;
+}
+
+.hero__titulo {
+  font-size: var(--fs-h1);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.hero__subtitulo {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--color-text-muted);
+  max-width: 55ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hero__conteudo .btn {
+  width: 100%;
+  max-width: 240px;
+  text-align: center;
+}
+
+/* Placeholder da imagem hero */
+.hero__imagem {
+  width: 100%;
+  max-width: 320px;
+}
+
+.hero__placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: var(--color-surface-alt);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__placeholder-icone {
+  font-size: 5rem;
+  color: var(--color-accent);
+  opacity: 0.4;
+}
+
+/* ==============================================
+   SERVIÇOS — GRID COM AUTO-FIT
+   ============================================== */
+.servicos {
+  padding: var(--space-xl) var(--space-sm);
+  background-color: var(--color-surface);
+}
+
+.servicos .container {
+  text-align: center;
+}
+
+/* Grade de cards — responsiva sem media queries adicionais */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+  text-align: left;
+}
+
+/* Card individual */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+.card--destaque {
+  border-color: var(--color-accent);
+}
+
+.card__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-accent);
+  color: #111111;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.2rem 0.75rem;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.card__icone {
+  font-size: 2.5rem;
+}
+
+.card__titulo {
+  font-size: var(--fs-h3);
+  color: var(--color-accent);
+}
+
+.card__descricao {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+.card__preco {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.card__preco strong {
+  color: var(--color-accent);
+  font-size: 1.125rem;
+}
+
+/* ==============================================
+   SOBRE
+   ============================================== */
+.sobre {
+  padding: var(--space-xl) var(--space-sm);
+}
+
+/* Mobile: coluna única */
+.sobre__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.sobre__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.sobre__conteudo p {
+  color: var(--color-text-muted);
+}
+
+.sobre__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.sobre__lista li {
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* Placeholder da imagem sobre */
+.sobre__imagem {
+  width: 100%;
+}
+
+.sobre__placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-surface-alt);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: var(--color-accent);
+  opacity: 0.4;
+}
+
+/* ==============================================
+   FOOTER
+   ============================================== */
+.footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-xl);
+}
+
+/* Mobile: coluna única */
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+.footer__titulo {
+  font-size: var(--fs-h3);
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.footer__subtitulo {
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.footer__info address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  color: var(--color-text-muted);
+}
+
+.footer__link {
+  color: var(--color-accent);
+  transition: color var(--transition);
+}
+
+.footer__link:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Horário */
+.horario {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xs) var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.horario dt {
+  color: var(--color-text);
+}
+
+/* Redes sociais */
+.social__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.social__link {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+
+.social__link:hover {
+  color: var(--color-accent);
+}
+
+/* Rodapé inferior */
+.footer__rodape {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-sm);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* ==============================================
+   TABLET: >= 768px
+   ============================================== */
+@media (min-width: 768px) {
+  /* Header: logo e nav lado a lado */
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-lg);
+    height: var(--header-height);
+  }
+
+  .nav__lista {
+    flex-wrap: nowrap;
+    gap: var(--space-md);
+  }
+
+  /* Hero: conteúdo centralizado, mais espaço */
+  .hero {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .hero__conteudo .btn {
+    width: auto;
+  }
+
+  /* Sobre: 2 colunas */
+  .sobre__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Footer: 2 colunas */
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==============================================
+   DESKTOP: >= 1024px
+   ============================================== */
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: var(--space-lg);
+  }
+
+  /* Hero: texto à esquerda, imagem à direita */
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    justify-content: center;
+    gap: var(--space-2xl);
+    padding: var(--space-2xl) var(--space-lg);
+    min-height: 80vh;
+  }
+
+  .hero__conteudo {
+    align-items: flex-start;
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .hero__subtitulo {
+    margin-inline: 0;
+  }
+
+  .hero__imagem {
+    flex: 0 0 400px;
+    max-width: 400px;
+  }
+
+  /* Footer: 3 colunas */
+  .footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Hamburguer: nunca aparece em desktop */
+  .nav-toggle-label {
+    display: none;
+  }
+}
+
+/* ==============================================
+   MODO ESCURO — prefers-color-scheme
+   ============================================== */
+@media (prefers-color-scheme: dark) {
+  /* O design já é escuro por padrão — apenas reforça contraste se necessário */
+  :root {
+    --color-text-muted: #b0b0b0;
+  }
+}
+
+/* ==============================================
+   HAMBURGUER MENU (CSS ONLY) — apenas mobile
+   ============================================== */
+@media (max-width: 767px) {
+  .nav-toggle-label {
+    display: flex;
+    position: absolute;
+    right: var(--space-sm);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .header {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .nav {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);
+  }
+
+  .nav-toggle:checked ~ .nav {
+    max-height: 300px;
+  }
+
+  /* Animação do ícone hamburguer */
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav__lista {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-sm) 0;
+    gap: var(--space-xs);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nav__link {
+    padding: var(--space-xs) 0;
+    width: 100%;
+  }
+}

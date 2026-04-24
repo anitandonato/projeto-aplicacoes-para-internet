@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Barbearia Clássica — Corte, barba e estilo com tradição e profissionalismo." />
+    <title>Barbearia Clássica</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+
+    <!-- ===== HEADER / NAVEGAÇÃO ===== -->
+    <header class="header">
+      <a href="#hero" class="logo" aria-label="Barbearia Clássica — Início">
+        <span class="logo__icone" aria-hidden="true">✂</span>
+        <span class="logo__nome">Barbearia<strong>Clássica</strong></span>
+      </a>
+
+      <!-- Hamburguer menu (CSS only) -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Abrir menu" />
+      <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav__lista">
+          <li><a href="#hero" class="nav__link">Início</a></li>
+          <li><a href="#servicos" class="nav__link">Serviços</a></li>
+          <li><a href="#sobre" class="nav__link">Sobre</a></li>
+          <li><a href="#contato" class="nav__link nav__link--cta">Agendar</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section id="hero" class="hero" aria-labelledby="hero-titulo">
+        <div class="hero__conteudo">
+          <h1 id="hero-titulo" class="hero__titulo">
+            Estilo, Tradição e<br />
+            <span class="destaque">Profissionalismo</span>
+          </h1>
+          <p class="hero__subtitulo">
+            Mais de 20 anos cuidando do visual dos nossos clientes com técnica,
+            atenção e o melhor atendimento da região.
+          </p>
+          <a href="#servicos" class="btn btn--primario">Ver Serviços</a>
+          <a href="#contato" class="btn btn--secundario">Agendar Horário</a>
+        </div>
+        <div class="hero__imagem" aria-hidden="true">
+          <div class="hero__placeholder">
+            <span class="hero__placeholder-icone" aria-hidden="true">✂</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERVIÇOS ===== -->
+      <section id="servicos" class="servicos" aria-labelledby="servicos-titulo">
+        <div class="container">
+          <h2 id="servicos-titulo" class="secao__titulo">Nossos Serviços</h2>
+          <p class="secao__subtitulo">
+            Tudo o que você precisa para estar sempre bem apresentado
+          </p>
+
+          <div class="cards-grid">
+
+            <article class="card" aria-labelledby="card-corte-titulo">
+              <div class="card__icone" aria-hidden="true">✂</div>
+              <h3 id="card-corte-titulo" class="card__titulo">Corte de Cabelo</h3>
+              <p class="card__descricao">
+                Cortes modernos e clássicos com acabamento impecável. Do degradê
+                ao corte social, o estilo que você quiser.
+              </p>
+              <p class="card__preco">A partir de <strong>R$ 35</strong></p>
+              <a href="#contato" class="btn btn--card">Agendar</a>
+            </article>
+
+            <article class="card" aria-labelledby="card-barba-titulo">
+              <div class="card__icone" aria-hidden="true">🪒</div>
+              <h3 id="card-barba-titulo" class="card__titulo">Barba</h3>
+              <p class="card__descricao">
+                Modelagem, aparagem e hidratação para sua barba. Técnica
+                profissional com navalha e produtos premium.
+              </p>
+              <p class="card__preco">A partir de <strong>R$ 25</strong></p>
+              <a href="#contato" class="btn btn--card">Agendar</a>
+            </article>
+
+            <article class="card card--destaque" aria-labelledby="card-combo-titulo">
+              <span class="card__badge">Mais Popular</span>
+              <div class="card__icone" aria-hidden="true">💈</div>
+              <h3 id="card-combo-titulo" class="card__titulo">Combo Completo</h3>
+              <p class="card__descricao">
+                Corte de cabelo + barba com tratamento de finalização. A
+                experiência completa da barbearia por um preço especial.
+              </p>
+              <p class="card__preco">A partir de <strong>R$ 55</strong></p>
+              <a href="#contato" class="btn btn--primario">Agendar</a>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SOBRE ===== -->
+      <section id="sobre" class="sobre" aria-labelledby="sobre-titulo">
+        <div class="container sobre__grid">
+          <div class="sobre__imagem" aria-hidden="true">
+            <div class="sobre__placeholder">
+              <span aria-hidden="true">💈</span>
+            </div>
+          </div>
+          <div class="sobre__conteudo">
+            <h2 id="sobre-titulo" class="secao__titulo">Sobre a Barbearia</h2>
+            <p>
+              Fundada há mais de duas décadas, a Barbearia Clássica nasceu com a
+              missão de oferecer um atendimento de qualidade aliado ao resgate
+              das tradições da barbearia artesanal.
+            </p>
+            <p>
+              Nossos profissionais são treinados para combinar técnicas modernas e
+              clássicas, garantindo que cada cliente saia daqui satisfeito e com
+              a autoestima renovada.
+            </p>
+            <ul class="sobre__lista" aria-label="Diferenciais">
+              <li>✔ Profissionais certificados</li>
+              <li>✔ Produtos de alta qualidade</li>
+              <li>✔ Atendimento com hora marcada</li>
+              <li>✔ Ambiente climatizado e confortável</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER / CONTATO ===== -->
+    <footer id="contato" class="footer" aria-labelledby="footer-titulo">
+      <div class="container footer__grid">
+        <div class="footer__info">
+          <h2 id="footer-titulo" class="footer__titulo">Fale Conosco</h2>
+          <address>
+            <p>📍 Rua das Tesouras, 123 — Centro</p>
+            <p>📞 <a href="tel:+5511999999999" class="footer__link">(11) 99999-9999</a></p>
+            <p>✉ <a href="mailto:contato@barbeariaclassica.com" class="footer__link">contato@barbeiraclassica.com</a></p>
+          </address>
+        </div>
+
+        <div class="footer__horario">
+          <h3 class="footer__subtitulo">Horário de Funcionamento</h3>
+          <dl class="horario">
+            <dt>Segunda a Sexta</dt>
+            <dd>09h às 19h</dd>
+            <dt>Sábado</dt>
+            <dd>09h às 17h</dd>
+            <dt>Domingo</dt>
+            <dd>Fechado</dd>
+          </dl>
+        </div>
+
+        <div class="footer__social">
+          <h3 class="footer__subtitulo">Redes Sociais</h3>
+          <nav aria-label="Redes sociais">
+            <ul class="social__lista">
+              <li><a href="#" class="social__link" aria-label="Instagram da Barbearia Clássica">Instagram</a></li>
+              <li><a href="#" class="social__link" aria-label="Facebook da Barbearia Clássica">Facebook</a></li>
+              <li><a href="#" class="social__link" aria-label="WhatsApp da Barbearia Clássica">WhatsApp</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer__rodape">
+        <p>© 2025 Barbearia Clássica.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
