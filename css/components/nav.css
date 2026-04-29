@@ -1,0 +1,167 @@
+/* =====================================================
+   components/nav.css — Header + Navegação
+   Mobile-first | Hamburger CSS-only
+   ===================================================== */
+
+/* === HEADER === */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* === LOGO === */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-heading);
+  font-size: var(--font-md);
+  color: var(--color-text);
+  transition: color var(--transition);
+}
+
+.logo:hover {
+  color: var(--color-accent);
+}
+
+.logo__icone {
+  font-size: var(--font-lg);
+  color: var(--color-accent);
+}
+
+.logo__nome strong {
+  color: var(--color-accent);
+}
+
+/* === HAMBURGUER — oculto em desktop === */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: var(--space-xs);
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* === NAV === */
+.nav__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs) var(--space-sm);
+}
+
+.nav__link {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  padding: 0.25rem var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition);
+}
+
+.nav__link:hover {
+  color: var(--color-accent);
+}
+
+/* Modificador BEM — link de agendamento (CTA) */
+.nav__link--cta {
+  background-color: var(--color-accent);
+  color: var(--color-gray-950);
+  padding: 0.25rem var(--space-sm);
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-bold);
+}
+
+.nav__link--cta:hover {
+  background-color: var(--color-accent-hover);
+  color: var(--color-gray-950);
+}
+
+/* === TABLET: >= 768px === */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-lg);
+    height: var(--header-height);
+  }
+
+  .nav__lista {
+    flex-wrap: nowrap;
+    gap: var(--space-md);
+  }
+}
+
+/* === HAMBURGUER: apenas mobile (< 768px) === */
+@media (max-width: 767px) {
+  .nav-toggle-label {
+    display: flex;
+    position: absolute;
+    right: var(--space-sm);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .header {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .nav {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);
+  }
+
+  .nav-toggle:checked ~ .nav {
+    max-height: 300px;
+  }
+
+  /* Animação do ícone — X ao abrir */
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav__lista {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-sm) 0;
+    gap: var(--space-xs);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nav__link {
+    padding: var(--space-xs) 0;
+    width: 100%;
+  }
+}

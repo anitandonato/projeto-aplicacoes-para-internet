@@ -1,0 +1,87 @@
+/* =====================================================
+   components/card.css — Seção Serviços + Cards
+   CSS Grid auto-fit | BEM
+   ===================================================== */
+
+/* === SEÇÃO SERVIÇOS === */
+.servicos {
+  padding: var(--space-xl) var(--space-sm);
+  background-color: var(--color-surface);
+}
+
+.servicos .container {
+  text-align: center;
+}
+
+/* === GRADE DE CARDS — responsiva sem media queries adicionais === */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+  text-align: left;
+}
+
+/* === CARD === */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+/* Modificador BEM — card em destaque */
+.card--destaque {
+  border-color: var(--color-accent);
+}
+
+/* === ELEMENTOS DO CARD === */
+.card__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-accent);
+  color: var(--color-gray-950);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  padding: 0.2rem 0.75rem;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+.card__icone {
+  font-size: var(--font-2xl);
+}
+
+.card__titulo {
+  font-size: var(--font-lg);
+  color: var(--color-accent);
+}
+
+.card__descricao {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  flex: 1;
+}
+
+.card__preco {
+  font-size: var(--font-base);
+  color: var(--color-text);
+}
+
+.card__preco strong {
+  color: var(--color-accent);
+  font-size: var(--font-md);
+}

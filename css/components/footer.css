@@ -1,0 +1,104 @@
+/* =====================================================
+   components/footer.css — Footer / Contato
+   Mobile-first | CSS Grid 1→2→3 colunas
+   ===================================================== */
+
+.footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-xl);
+}
+
+/* Mobile: coluna única */
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+/* === TÍTULOS === */
+.footer__titulo {
+  font-size: var(--font-lg);
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.footer__subtitulo {
+  font-size: var(--font-base);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+/* === INFO / ENDEREÇO === */
+.footer__info address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  color: var(--color-text-muted);
+}
+
+.footer__link {
+  color: var(--color-accent);
+  transition: color var(--transition);
+}
+
+.footer__link:hover {
+  color: var(--color-accent-hover);
+}
+
+/* === HORÁRIO === */
+.horario {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xs) var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+}
+
+.horario dt {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+
+/* === REDES SOCIAIS === */
+.social__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.social__link {
+  color: var(--color-text-muted);
+  font-size: var(--font-base);
+  transition: color var(--transition);
+}
+
+.social__link:hover {
+  color: var(--color-accent);
+}
+
+/* === RODAPÉ INFERIOR === */
+.footer__rodape {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-sm);
+  text-align: center;
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+}
+
+/* === TABLET: >= 768px — 2 colunas === */
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* === DESKTOP: >= 1024px — 3 colunas === */
+@media (min-width: 1024px) {
+  .footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

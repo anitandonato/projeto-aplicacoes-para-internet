@@ -1,0 +1,91 @@
+/* =====================================================
+   variables.css — Settings Layer (ITCSS)
+   Custom Properties: tipografia, cores, espaçamento
+   ===================================================== */
+
+:root {
+  /* === FAMÍLIAS TIPOGRÁFICAS === */
+  --font-heading: 'Poppins', system-ui, sans-serif;
+  --font-body:    'Inter',   system-ui, sans-serif;
+
+  /* === ESCALA TIPOGRÁFICA MODULAR (Major Third — razão 1.250) === */
+  --font-xs:   0.640rem;   /* ≈ 10px — badges, labels */
+  --font-sm:   0.800rem;   /* ≈ 13px — metadados, notas */
+  --font-base: 1.000rem;   /* = 16px — corpo padrão */
+  --font-md:   1.250rem;   /* ≈ 20px — subtítulos */
+  --font-lg:   1.563rem;   /* ≈ 25px — H3, títulos de cards */
+  --font-xl:   1.953rem;   /* ≈ 31px — H2, títulos de seção */
+  --font-2xl:  2.441rem;   /* ≈ 39px — H1 */
+  --font-3xl:  3.052rem;   /* ≈ 49px — display, hero */
+
+  /* === PESOS TIPOGRÁFICOS === */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  /* === ENTRELINHAMENTO === */
+  --leading-tight:  1.2;   /* headings */
+  --leading-normal: 1.5;   /* corpo */
+  --leading-loose:  1.8;   /* leitura extensiva */
+
+  /* === PALETA PRIMITIVA — BARBEARIA CLÁSSICA === */
+  /* Dourado (cor primária da marca) */
+  --color-primary-100: #f9f0d6;
+  --color-primary-300: #e5c97a;
+  --color-primary-500: #c9a84c;   /* base */
+  --color-primary-700: #a07d2e;
+  --color-primary-900: #6b5120;
+
+  /* Escala de neutros (tema escuro) */
+  --color-gray-100: #f0f0f0;
+  --color-gray-300: #aaaaaa;
+  --color-gray-500: #555555;
+  --color-gray-700: #333333;
+  --color-gray-800: #252525;
+  --color-gray-900: #1e1e1e;
+  --color-gray-950: #111111;
+
+  /* Semânticas */
+  --color-success: #107c41;
+  --color-warning: #ff8c00;
+  --color-danger:  #c00000;
+  --color-info:    #0078d4;
+
+  /* === ROLES SEMÂNTICOS === */
+  --color-bg:           var(--color-gray-950);
+  --color-surface:      var(--color-gray-900);
+  --color-surface-alt:  var(--color-gray-800);
+  --color-border:       var(--color-gray-700);
+  --color-text:         var(--color-gray-100);
+  --color-text-muted:   var(--color-gray-300);
+  --color-accent:       var(--color-primary-500);
+  --color-accent-hover: var(--color-primary-300);
+
+  /* === ESPAÇAMENTOS === */
+  --space-xs:  0.5rem;
+  --space-sm:  1.0rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.0rem;
+  --space-xl:  3.0rem;
+  --space-2xl: 5.0rem;
+
+  /* === LAYOUT === */
+  --max-width:     1200px;
+  --header-height: 64px;
+
+  /* === BORDAS E SOMBRAS === */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+  /* === TRANSIÇÕES === */
+  --transition: 0.25s ease;
+}
+
+/* Modo escuro — reforça contraste de texto muted */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-muted: #b0b0b0;
+  }
+}

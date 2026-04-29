@@ -1,0 +1,57 @@
+/* =====================================================
+   base.css — Base Layer (ITCSS)
+   Estilos de elementos HTML sem classes
+   ===================================================== */
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+/* Headings usam a família tipográfica de display */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+h1 { font-size: clamp(var(--font-2xl), 5vw, var(--font-3xl)); }
+h2 { font-size: var(--font-xl); }
+h3 { font-size: var(--font-lg); }
+
+p {
+  line-height: var(--leading-normal);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Foco visível — acessibilidade por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+label:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Inputs responsivos */
+input,
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}

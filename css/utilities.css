@@ -1,0 +1,94 @@
+/* =====================================================
+   utilities.css — Utilities Layer (ITCSS)
+   Classes auxiliares e componentes globais
+   ===================================================== */
+
+/* Oculta visualmente mas mantém para leitores de tela */
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Destaque dourado inline */
+.destaque {
+  color: var(--color-accent);
+}
+
+/* === TÍTULOS DE SEÇÃO === */
+.secao__titulo {
+  font-size: var(--font-xl);
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.secao__subtitulo {
+  font-size: var(--font-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* === BOTÕES === */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition),
+              color var(--transition),
+              transform var(--transition);
+  border: 2px solid transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Botão primário — fundo dourado */
+.btn--primario {
+  background-color: var(--color-accent);
+  color: var(--color-gray-950);
+  border-color: var(--color-accent);
+}
+
+.btn--primario:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+/* Botão secundário — contorno dourado */
+.btn--secundario {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn--secundario:hover {
+  background-color: var(--color-accent);
+  color: var(--color-gray-950);
+}
+
+/* Botão de card — ocupa largura total */
+.btn--card {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  width: 100%;
+  text-align: center;
+}
+
+.btn--card:hover {
+  background-color: var(--color-accent);
+  color: var(--color-gray-950);
+}
