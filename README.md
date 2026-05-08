@@ -159,3 +159,169 @@ css/
 - Organização ITCSS em 5 camadas + pasta `components/`
 - Nomenclatura BEM consistente em todos os componentes
 - `--leading-tight`, `--leading-normal`, `--leading-loose` para controle de entrelinhamento
+
+---
+
+## Etapa 3 — Componentes e Padronização
+
+### Estrutura Semântica da Página
+
+A aplicação foi reorganizada utilizando componentes reutilizáveis e estrutura semântica baseada em HTML5:
+
+- `<header>` → Navbar principal e navegação
+- `<main>` → Conteúdo central da landing page
+- `<section>` → Agrupamento das áreas funcionais
+- `<article>` → Cards de serviços
+- `<footer>` → Informações de contato e redes sociais
+
+A hierarquia visual e semântica foi mantida utilizando headings organizados em ordem lógica:
+
+```html
+<h1> → título principal da hero section
+<h2> → títulos das seções
+<h3> → títulos dos cards
+
+### Navbar Responsiva
+
+A navegação foi construída seguindo a metodologia BEM e comportamento Mobile-First.
+
+Funcionalidades implementadas
+Menu horizontal em desktop
+Hamburger menu abaixo de 768px
+Toggle via JavaScript
+Fechamento automático ao pressionar Escape
+Estados de hover e :focus-visible
+Header com suporte a scroll (.header--scrolled)
+Estrutura BEM
+<header class="header">
+  <nav class="nav">
+    <a class="nav__logo">Barbearia Clássica</a>
+
+    <button class="nav__toggle">
+      ☰
+    </button>
+
+    <ul class="nav__menu">
+      <li class="nav__item">
+        <a class="nav__link">Serviços</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+### Sistema de Cards
+
+Os serviços da barbearia foram organizados utilizando CSS Grid responsivo.
+
+Características
+Grid Mobile-First
+1 coluna no mobile
+2 colunas em tablets
+3 colunas em desktop
+Hover com elevação e sombra
+Variante .card--featured
+Estrutura BEM
+
+<html>
+<article class="card card--featured">
+  <h3 class="card__title">Combo Completo</h3>
+
+  <p class="card__description">
+    Corte + barba + acabamento premium.
+  </p>
+
+  <a class="btn btn--primary">
+    Agendar
+  </a>
+</article>
+
+### Footer Responsivo
+
+O footer foi construído utilizando CSS Grid com adaptação automática para diferentes larguras de tela.
+
+Conteúdo
+Endereço
+Horários de funcionamento
+Redes sociais
+Telefone e e-mail
+Recursos implementados
+Grid responsivo 1 → 2 → 3 colunas
+Fundo escuro com contraste AA
+Links acessíveis
+Copyright automático via JavaScript
+
+### Padronização de Classes — BEM
+
+Todo o projeto segue a convenção BEM (Block Element Modifier).
+
+Estrutura utilizada
+.block {}
+.block__element {}
+.block--modifier {}
+Exemplos reais do projeto
+.nav {}
+.nav__menu {}
+.nav__link {}
+CSS
+.card {}
+.card__title {}
+.card--featured {}
+
+.footer {}
+.footer__column {}
+
+Benefícios obtidos:
+
+Maior organização
+Reutilização de componentes
+Facilidade de manutenção
+CSS escalável
+Redução de conflitos entre estilos
+
+### itcss
+
+css/
+├── variables.css
+├── reset.css
+├── base.cssSSSSS
+├── utilities.css
+└── components/
+    ├── navbar.css
+    ├── hero.css
+    ├── card.css
+    ├── btn.css
+    ├── sobre.css
+    └── footer.css
+
+### JavaScript
+
+O arquivo js/main.js centraliza os comportamentos interativos da interface.
+
+Funcionalidades
+Toggle do hamburger menu
+Fechamento do menu com Escape
+Atualização automática do ano no footer
+Header dinâmico durante o scroll
+Exemplo
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    navMenu.classList.remove("active");
+  }
+});
+
+### Critérios Atendidos (Etapa 3)
+- Navbar responsiva com hamburger menu
+- Toggle do menu via JavaScript
+- Fechamento do menu com tecla Escape
+- Header com efeito de scroll
+- Cards reutilizáveis com variante .card--featured
+- CSS Grid responsivo (1→2→3 colunas)
+- Footer responsivo com grid adaptável
+- Organização ITCSS completa
+- Metodologia BEM aplicada em todos os componentes
+- Componente de botões reutilizáveis (btn.css)
+- Estados acessíveis com :focus-visible
+- JavaScript separado em js/main.js
+- Semântica HTML5 aplicada corretamente
+- Mobile-First utilizando min-width
+- Sem uso de frameworks externos
