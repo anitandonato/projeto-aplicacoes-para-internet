@@ -180,19 +180,24 @@ A hierarquia visual e semântica foi mantida utilizando headings organizados em 
 <h1> → título principal da hero section
 <h2> → títulos das seções
 <h3> → títulos dos cards
+```
 
 ### Navbar Responsiva
 
 A navegação foi construída seguindo a metodologia BEM e comportamento Mobile-First.
 
-Funcionalidades implementadas
-Menu horizontal em desktop
-Hamburger menu abaixo de 768px
-Toggle via JavaScript
-Fechamento automático ao pressionar Escape
-Estados de hover e :focus-visible
-Header com suporte a scroll (.header--scrolled)
-Estrutura BEM
+Funcionalidades implementadas:
+
+- Menu horizontal em desktop
+- Hamburger menu abaixo de 768px
+- Toggle via JavaScript
+- Fechamento automático ao pressionar `Escape`
+- Estados de `hover` e `:focus-visible`
+- Header com suporte a scroll (`.header--scrolled`)
+
+Estrutura BEM:
+
+```html
 <header class="header">
   <nav class="nav">
     <a class="nav__logo">Barbearia Clássica</a>
@@ -208,21 +213,25 @@ Estrutura BEM
     </ul>
   </nav>
 </header>
+```
 
 ### Sistema de Cards
 
 Os serviços da barbearia foram organizados utilizando CSS Grid responsivo.
 
-Características
-Grid Mobile-First
-1 coluna no mobile
-2 colunas em tablets
-3 colunas em desktop
-Hover com elevação e sombra
-Variante .card--featured
-Estrutura BEM
+Características:
 
-<html>
+- Grid Mobile-First
+- 1 coluna no mobile
+- 2 colunas em tablets
+- 3 colunas em desktop
+- Hover com elevação e sombra
+- Variante `.card--featured`
+- Estrutura BEM
+
+Exemplo:
+
+```html
 <article class="card card--featured">
   <h3 class="card__title">Combo Completo</h3>
 
@@ -234,56 +243,66 @@ Estrutura BEM
     Agendar
   </a>
 </article>
+```
 
 ### Footer Responsivo
 
 O footer foi construído utilizando CSS Grid com adaptação automática para diferentes larguras de tela.
 
-Conteúdo
-Endereço
-Horários de funcionamento
-Redes sociais
-Telefone e e-mail
-Recursos implementados
-Grid responsivo 1 → 2 → 3 colunas
-Fundo escuro com contraste AA
-Links acessíveis
-Copyright automático via JavaScript
+Conteúdo:
+
+- Endereço
+- Horários de funcionamento
+- Redes sociais
+- Telefone e e-mail
+
+Recursos implementados:
+
+- Grid responsivo `1 → 2 → 3` colunas
+- Fundo escuro com contraste AA
+- Links acessíveis
+- Copyright automático via JavaScript
 
 ### Padronização de Classes — BEM
 
 Todo o projeto segue a convenção BEM (Block Element Modifier).
 
-Estrutura utilizada
+Estrutura utilizada:
+
+```css
 .block {}
 .block__element {}
 .block--modifier {}
-Exemplos reais do projeto
+```
+
+Exemplos reais do projeto:
+
+```css
 .nav {}
 .nav__menu {}
 .nav__link {}
-CSS
 .card {}
 .card__title {}
 .card--featured {}
-
 .footer {}
 .footer__column {}
+```
 
 Benefícios obtidos:
 
-Maior organização
-Reutilização de componentes
-Facilidade de manutenção
-CSS escalável
-Redução de conflitos entre estilos
+- Maior organização
+- Reutilização de componentes
+- Facilidade de manutenção
+- CSS escalável
+- Redução de conflitos entre estilos
 
-### itcss
+### ITCSS
 
+```text
 css/
 ├── variables.css
 ├── reset.css
-├── base.cssSSSSS
+├── base.css
 ├── utilities.css
 └── components/
     ├── navbar.css
@@ -292,22 +311,28 @@ css/
     ├── btn.css
     ├── sobre.css
     └── footer.css
+```
 
 ### JavaScript
 
-O arquivo js/main.js centraliza os comportamentos interativos da interface.
+O arquivo `js/main.js` centraliza os comportamentos interativos da interface.
 
-Funcionalidades
-Toggle do hamburger menu
-Fechamento do menu com Escape
-Atualização automática do ano no footer
-Header dinâmico durante o scroll
-Exemplo
+Funcionalidades:
+
+- Toggle do hamburger menu
+- Fechamento do menu com `Escape`
+- Atualização automática do ano no footer
+- Header dinâmico durante o scroll
+
+Exemplo:
+
+```js
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     navMenu.classList.remove("active");
   }
 });
+```
 
 ### Critérios Atendidos (Etapa 3)
 - Navbar responsiva com hamburger menu
