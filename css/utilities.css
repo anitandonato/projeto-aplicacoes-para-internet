@@ -18,77 +18,85 @@
 
 /* Destaque dourado inline */
 .destaque {
-  color: var(--color-accent);
+  color: var(--color-brand);
 }
 
 /* === TÍTULOS DE SEÇÃO === */
 .secao__titulo {
-  font-size: var(--font-xl);
-  color: var(--color-accent);
-  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-xl);
+  color: var(--color-brand);
+  margin-bottom: var(--space-2);
 }
 
 .secao__subtitulo {
-  font-size: var(--font-base);
+  font-size: var(--font-size-base);
   color: var(--color-text-muted);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-8);
 }
 
 /* === BOTÕES === */
 .btn {
+  --btn-padding-block: var(--space-3);
+  --btn-padding-inline: var(--space-6);
+  --btn-border-width: var(--border-width-md);
+  --btn-hover-offset: -2px;
+  --btn-letter-spacing: 0.05em;
+
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: var(--btn-padding-block) var(--btn-padding-inline);
   border-radius: var(--radius-md);
-  font-family: var(--font-heading);
-  font-size: var(--font-sm);
-  font-weight: var(--weight-bold);
-  letter-spacing: 0.05em;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--btn-letter-spacing);
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color var(--transition),
-              color var(--transition),
-              transform var(--transition);
-  border: 2px solid transparent;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+  border: var(--btn-border-width) solid transparent;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(var(--btn-hover-offset));
 }
 
 /* Botão primário — fundo dourado */
 .btn--primario {
-  background-color: var(--color-accent);
-  color: var(--color-gray-950);
-  border-color: var(--color-accent);
+  background-color: var(--color-action-primary);
+  color: var(--color-action-on-primary);
+  border-color: var(--color-action-primary);
 }
 
 .btn--primario:hover {
-  background-color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
+  background-color: var(--color-action-primary-hover);
+  border-color: var(--color-action-primary-hover);
 }
 
 /* Botão secundário — contorno dourado */
 .btn--secundario {
   background-color: transparent;
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  color: var(--color-action-primary);
+  border-color: var(--color-action-primary);
 }
 
 .btn--secundario:hover {
-  background-color: var(--color-accent);
-  color: var(--color-gray-950);
+  background-color: var(--color-action-primary);
+  color: var(--color-action-on-primary);
 }
 
 /* Botão de card — ocupa largura total */
 .btn--card {
   background-color: transparent;
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  color: var(--color-action-primary);
+  border-color: var(--color-action-primary);
   width: 100%;
   text-align: center;
 }
 
 .btn--card:hover {
-  background-color: var(--color-accent);
-  color: var(--color-gray-950);
+  background-color: var(--color-action-primary);
+  color: var(--color-action-on-primary);
 }

@@ -5,13 +5,22 @@
 
 /* === HEADER === */
 .header {
+  --nav-border-width: var(--border-width-sm);
+  --nav-toggle-gap: 5px;
+  --nav-toggle-bar-width: 24px;
+  --nav-toggle-bar-height: 2px;
+  --nav-toggle-bar-radius: 2px;
+  --nav-link-padding-block: var(--space-1);
+  --nav-menu-max-height: 300px;
+  --nav-toggle-translate: 7px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm);
+  gap: var(--space-4);
+  padding: var(--space-4);
   background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--nav-border-width) solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -21,24 +30,24 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  font-family: var(--font-heading);
-  font-size: var(--font-md);
+  gap: var(--space-2);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-md);
   color: var(--color-text);
-  transition: color var(--transition);
+  transition: color var(--transition-fast);
 }
 
 .logo:hover {
-  color: var(--color-accent);
+  color: var(--color-brand);
 }
 
 .logo__icone {
-  font-size: var(--font-lg);
-  color: var(--color-accent);
+  font-size: var(--font-size-lg);
+  color: var(--color-brand);
 }
 
 .logo__nome strong {
-  color: var(--color-accent);
+  color: var(--color-brand);
 }
 
 /* === HAMBURGUER — oculto em desktop === */
@@ -49,18 +58,20 @@
 .nav-toggle-label {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: var(--nav-toggle-gap);
   cursor: pointer;
-  padding: var(--space-xs);
+  padding: var(--space-2);
 }
 
 .nav-toggle-label span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: var(--nav-toggle-bar-width);
+  height: var(--nav-toggle-bar-height);
   background-color: var(--color-text);
-  border-radius: 2px;
-  transition: transform var(--transition), opacity var(--transition);
+  border-radius: var(--nav-toggle-bar-radius);
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 /* === NAV === */
@@ -68,33 +79,33 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-xs) var(--space-sm);
+  gap: var(--space-2) var(--space-4);
 }
 
 .nav__link {
-  font-size: var(--font-sm);
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  padding: 0.25rem var(--space-xs);
+  padding: var(--nav-link-padding-block) var(--space-2);
   border-radius: var(--radius-sm);
-  transition: color var(--transition);
+  transition: color var(--transition-fast);
 }
 
 .nav__link:hover {
-  color: var(--color-accent);
+  color: var(--color-action-primary);
 }
 
 /* Modificador BEM — link de agendamento (CTA) */
 .nav__link--cta {
-  background-color: var(--color-accent);
-  color: var(--color-gray-950);
-  padding: 0.25rem var(--space-sm);
+  background-color: var(--color-action-primary);
+  color: var(--color-action-on-primary);
+  padding: var(--nav-link-padding-block) var(--space-4);
   border-radius: var(--radius-md);
-  font-weight: var(--weight-bold);
+  font-weight: var(--font-weight-bold);
 }
 
 .nav__link--cta:hover {
-  background-color: var(--color-accent-hover);
-  color: var(--color-gray-950);
+  background-color: var(--color-action-primary-hover);
+  color: var(--color-action-on-primary);
 }
 
 /* === TABLET: >= 768px === */
@@ -103,13 +114,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 var(--space-lg);
+    padding: 0 var(--space-8);
     height: var(--header-height);
   }
 
   .nav__lista {
     flex-wrap: nowrap;
-    gap: var(--space-md);
+    gap: var(--space-6);
   }
 }
 
@@ -118,7 +129,7 @@
   .nav-toggle-label {
     display: flex;
     position: absolute;
-    right: var(--space-sm);
+    right: var(--space-4);
     top: 50%;
     transform: translateY(-50%);
   }
@@ -132,16 +143,16 @@
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition);
+    transition: max-height var(--transition-fast);
   }
 
   .nav-toggle:checked ~ .nav {
-    max-height: 300px;
+    max-height: var(--nav-menu-max-height);
   }
 
   /* Animação do ícone — X ao abrir */
   .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(var(--nav-toggle-translate)) rotate(45deg);
   }
 
   .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
@@ -149,19 +160,19 @@
   }
 
   .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(calc(var(--nav-toggle-translate) * -1)) rotate(-45deg);
   }
 
   .nav__lista {
     flex-direction: column;
     align-items: flex-start;
-    padding: var(--space-sm) 0;
-    gap: var(--space-xs);
-    border-top: 1px solid var(--color-border);
+    padding: var(--space-4) 0;
+    gap: var(--space-2);
+    border-top: var(--nav-border-width) solid var(--color-border);
   }
 
   .nav__link {
-    padding: var(--space-xs) 0;
+    padding: var(--space-2) 0;
     width: 100%;
   }
 }

@@ -1,0 +1,31 @@
+/* =====================================================
+   primitives.css — camada 1: tokens primitivos
+   Convenção: prefixo "_" indica uso interno do sistema
+   ===================================================== */
+
+:root {
+  /* Paleta da marca */
+  --_color-brand-100: #f9f0d6;
+  --_color-brand-300: #e5c97a;
+  --_color-brand-500: #c9a84c;
+  --_color-brand-700: #a07d2e;
+  --_color-brand-900: #6b5120;
+
+  /* Escala de neutros */
+  --_color-neutral-100: #f0f0f0;
+  --_color-neutral-300: #aaaaaa;
+  --_color-neutral-500: #555555;
+  --_color-neutral-700: #333333;
+  --_color-neutral-800: #252525;
+  --_color-neutral-900: #1e1e1e;
+  --_color-neutral-950: #111111;
+
+  /* Feedback */
+  --_color-success-500: #107c41;
+  --_color-warning-500: #ff8c00;
+  --_color-danger-500: #c00000;
+  --_color-info-500: #0078d4;
+
+  /* Valores brutos reutilizáveis */
+  --_shadow-color-overlay: rgba(0, 0, 0, 0.4);
+}

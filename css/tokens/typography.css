@@ -1,0 +1,26 @@
+/* =====================================================
+   typography.css — família, tamanho, peso e entrelinha
+   Convenção: font-size / font-weight / line-height
+   ===================================================== */
+
+:root {
+  --font-family-heading: "Poppins", system-ui, sans-serif;
+  --font-family-body: "Inter", system-ui, sans-serif;
+
+  --font-size-xs: 0.640rem;
+  --font-size-sm: 0.800rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.250rem;
+  --font-size-lg: 1.563rem;
+  --font-size-xl: 1.953rem;
+  --font-size-2xl: 2.441rem;
+  --font-size-3xl: 3.052rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-loose: 1.8;
+}

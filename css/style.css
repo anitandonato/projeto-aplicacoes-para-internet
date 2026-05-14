@@ -1,7 +1,8 @@
 /* =====================================================
    style.css — ARQUIVO DESCONTINUADO (Etapa 2)
-   Os estilos foram reorganizados em arquivos ITCSS:
-     css/variables.css   — Custom Properties
+   Os estilos foram reorganizados em Design Tokens + ITCSS:
+     css/main.css        — ponto de entrada
+     css/tokens/         — primitives, semantic, spacing, typography
      css/reset.css       — Modern CSS Reset
      css/base.css        — Elementos HTML base
      css/layout.css      — Container e wrappers

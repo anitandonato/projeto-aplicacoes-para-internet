@@ -5,7 +5,14 @@
 
 /* === SEÇÃO SERVIÇOS === */
 .servicos {
-  padding: var(--space-xl) var(--space-sm);
+  --cards-min-column-size: 260px;
+  --card-border-width: var(--border-width-sm);
+  --card-lift-offset: -4px;
+  --card-badge-offset-top: -12px;
+  --card-badge-padding-block: 0.2rem;
+  --card-badge-padding-inline: var(--space-3);
+
+  padding: var(--space-12) var(--space-4);
   background-color: var(--color-surface);
 }
 
@@ -16,8 +23,8 @@
 /* === GRADE DE CARDS — responsiva sem media queries adicionais === */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(var(--cards-min-column-size), 1fr));
+  gap: var(--space-6);
   text-align: left;
 }
 
@@ -26,62 +33,64 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-  padding: var(--space-lg);
+  gap: var(--space-4);
+  padding: var(--space-8);
   background-color: var(--color-surface-alt);
-  border: 1px solid var(--color-border);
+  border: var(--card-border-width) solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition), border-color var(--transition);
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-accent);
+  transform: translateY(var(--card-lift-offset));
+  border-color: var(--color-brand);
 }
 
 /* Modificador BEM — card em destaque */
 .card--destaque {
-  border-color: var(--color-accent);
+  border-color: var(--color-brand);
 }
 
 /* === ELEMENTOS DO CARD === */
 .card__badge {
   position: absolute;
-  top: -12px;
+  top: var(--card-badge-offset-top);
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--color-accent);
-  color: var(--color-gray-950);
-  font-size: var(--font-xs);
-  font-weight: var(--weight-bold);
-  padding: 0.2rem 0.75rem;
-  border-radius: 99px;
+  background-color: var(--color-action-primary);
+  color: var(--color-action-on-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  padding: var(--card-badge-padding-block) var(--card-badge-padding-inline);
+  border-radius: var(--radius-full);
   white-space: nowrap;
 }
 
 .card__icone {
-  font-size: var(--font-2xl);
+  font-size: var(--font-size-2xl);
 }
 
 .card__titulo {
-  font-size: var(--font-lg);
-  color: var(--color-accent);
+  font-size: var(--font-size-lg);
+  color: var(--color-brand);
 }
 
 .card__descricao {
-  font-size: var(--font-sm);
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  line-height: var(--leading-normal);
+  line-height: var(--line-height-normal);
   flex: 1;
 }
 
 .card__preco {
-  font-size: var(--font-base);
+  font-size: var(--font-size-base);
   color: var(--color-text);
 }
 
 .card__preco strong {
-  color: var(--color-accent);
-  font-size: var(--font-md);
+  color: var(--color-brand);
+  font-size: var(--font-size-md);
 }

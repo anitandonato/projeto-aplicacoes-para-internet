@@ -86,13 +86,17 @@ Abra o arquivo `index.html` diretamente no navegador, ou acesse o site publicado
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--color-accent` | `#c9a84c` | Dourado — CTAs e destaques |
+| `--color-brand` | `var(--_color-brand-500)` | Identidade visual, títulos e ícones |
+| `--color-action-primary` | `var(--color-brand)` | Botões e links interativos |
+| `--color-action-primary-hover` | `var(--color-brand-soft)` | Estado hover das ações |
 | `--color-bg` | `#111111` | Fundo da página |
 | `--color-surface` | `#1e1e1e` | Header e footer |
 | `--color-surface-alt` | `#252525` | Cards |
 | `--color-text` | `#f0f0f0` | Texto principal |
 | `--color-text-muted` | `#aaaaaa` | Texto secundário |
 | `--color-border` | `#333333` | Bordas e divisores |
+
+Os primitivos agora ficam em `css/tokens/primitives.css` com prefixo `_`, e os componentes consomem apenas tokens semânticos definidos em `css/tokens/semantic.css`.
 
 Contraste `#c9a84c` sobre `#111111` → razão **≥ 6:1** — aprovado no **WCAG AA e AAA**.
 
@@ -102,16 +106,16 @@ Contraste `#c9a84c` sobre `#111111` → razão **≥ 6:1** — aprovado no **WCA
 
 | Token | Tamanho | Uso |
 |---|---|---|
-| `--font-xs` | 0.640rem | Badges, labels |
-| `--font-sm` | 0.800rem | Nav links, metadados |
-| `--font-base` | 1.000rem | Corpo do texto |
-| `--font-md` | 1.250rem | Subtítulos |
-| `--font-lg` | 1.563rem | H3, títulos de cards |
-| `--font-xl` | 1.953rem | H2, títulos de seção |
-| `--font-2xl` | 2.441rem | H1 |
-| `--font-3xl` | 3.052rem | Hero display |
+| `--font-size-xs` | 0.640rem | Badges, labels |
+| `--font-size-sm` | 0.800rem | Nav links, metadados |
+| `--font-size-base` | 1.000rem | Corpo do texto |
+| `--font-size-md` | 1.250rem | Subtítulos |
+| `--font-size-lg` | 1.563rem | H3, títulos de cards |
+| `--font-size-xl` | 1.953rem | H2, títulos de seção |
+| `--font-size-2xl` | 2.441rem | H1 |
+| `--font-size-3xl` | 3.052rem | Hero display |
 
-**Famílias:** `Poppins` (headings) + `Inter` (corpo) via Google Fonts.
+**Famílias:** `--font-family-heading` = `Poppins` e `--font-family-body` = `Inter`.
 
 ---
 
@@ -119,7 +123,12 @@ Contraste `#c9a84c` sobre `#111111` → razão **≥ 6:1** — aprovado no **WCA
 
 ```
 css/
-├── variables.css        ← Custom Properties (cores, tipografia, espaçamento)
+├── main.css             ← Ponto de entrada com @imports
+├── tokens/
+│   ├── primitives.css   ← Paleta bruta com prefixo `_`
+│   ├── semantic.css     ← Roles semânticos (marca, ação, superfície, texto)
+│   ├── spacing.css      ← Escala de espaçamento em múltiplos de 4px
+│   └── typography.css   ← Família, tamanho, peso e line-height
 ├── reset.css            ← Modern CSS Reset (Andy Bell, 2024)
 ├── base.css             ← Elementos HTML sem classes (h1-h6, a, ul...)
 ├── layout.css           ← Container e wrappers de página
@@ -156,9 +165,10 @@ css/
 - Sistema de cores semântico com paleta primitiva + roles (`--color-bg`, `--color-surface`...)
 - Google Fonts: Poppins (headings) + Inter (corpo) com `font-weight` 400/500/700
 - Modern CSS Reset (Andy Bell, 2024) em arquivo dedicado
+- Design Token System separado por responsabilidade em `tokens/`
 - Organização ITCSS em 5 camadas + pasta `components/`
 - Nomenclatura BEM consistente em todos os componentes
-- `--leading-tight`, `--leading-normal`, `--leading-loose` para controle de entrelinhamento
+- `--line-height-tight`, `--line-height-normal`, `--line-height-loose` para controle de entrelinhamento
 
 ---
 
@@ -226,13 +236,13 @@ Características:
 - 2 colunas em tablets
 - 3 colunas em desktop
 - Hover com elevação e sombra
-- Variante `.card--featured`
+- Variante `.card--destaque`
 - Estrutura BEM
 
 Exemplo:
 
 ```html
-<article class="card card--featured">
+<article class="card card--destaque">
   <h3 class="card__title">Combo Completo</h3>
 
   <p class="card__description">
@@ -283,7 +293,7 @@ Exemplos reais do projeto:
 .nav__link {}
 .card {}
 .card__title {}
-.card--featured {}
+.card--destaque {}
 .footer {}
 .footer__column {}
 ```
@@ -300,15 +310,20 @@ Benefícios obtidos:
 
 ```text
 css/
-├── variables.css
+├── main.css
+├── tokens/
+│   ├── primitives.css
+│   ├── semantic.css
+│   ├── spacing.css
+│   └── typography.css
 ├── reset.css
 ├── base.css
+├── layout.css
 ├── utilities.css
 └── components/
-    ├── navbar.css
+    ├── nav.css
     ├── hero.css
     ├── card.css
-    ├── btn.css
     ├── sobre.css
     └── footer.css
 ```
@@ -339,12 +354,13 @@ document.addEventListener("keydown", (event) => {
 - Toggle do menu via JavaScript
 - Fechamento do menu com tecla Escape
 - Header com efeito de scroll
-- Cards reutilizáveis com variante .card--featured
+- Cards reutilizáveis com variante `.card--destaque`
 - CSS Grid responsivo (1→2→3 colunas)
 - Footer responsivo com grid adaptável
-- Organização ITCSS completa
+- Organização ITCSS completa com `main.css` e pasta `tokens/`
+- Tokens primitivos, semânticos e de componente aplicados no CSS
 - Metodologia BEM aplicada em todos os componentes
-- Componente de botões reutilizáveis (btn.css)
+- Componente de botões reutilizáveis em `utilities.css`
 - Estados acessíveis com :focus-visible
 - JavaScript separado em js/main.js
 - Semântica HTML5 aplicada corretamente
