@@ -42,7 +42,10 @@
   --btn-hover-offset: -2px;
   --btn-letter-spacing: 0.05em;
 
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: var(--btn-padding-block) var(--btn-padding-inline);
   border-radius: var(--radius-md);
   font-family: var(--font-family-heading);
@@ -59,10 +62,6 @@
   border: var(--btn-border-width) solid transparent;
 }
 
-.btn:hover {
-  transform: translateY(var(--btn-hover-offset));
-}
-
 /* Botão primário — fundo dourado */
 .btn--primario {
   background-color: var(--color-action-primary);
@@ -70,21 +69,11 @@
   border-color: var(--color-action-primary);
 }
 
-.btn--primario:hover {
-  background-color: var(--color-action-primary-hover);
-  border-color: var(--color-action-primary-hover);
-}
-
 /* Botão secundário — contorno dourado */
 .btn--secundario {
   background-color: transparent;
   color: var(--color-action-primary);
   border-color: var(--color-action-primary);
-}
-
-.btn--secundario:hover {
-  background-color: var(--color-action-primary);
-  color: var(--color-action-on-primary);
 }
 
 /* Botão de card — ocupa largura total */
@@ -96,7 +85,23 @@
   text-align: center;
 }
 
-.btn--card:hover {
-  background-color: var(--color-action-primary);
-  color: var(--color-action-on-primary);
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(var(--btn-hover-offset));
+  }
+
+  .btn--primario:hover {
+    background-color: var(--color-action-primary-hover);
+    border-color: var(--color-action-primary-hover);
+  }
+
+  .btn--secundario:hover {
+    background-color: var(--color-action-primary);
+    color: var(--color-action-on-primary);
+  }
+
+  .btn--card:hover {
+    background-color: var(--color-action-primary);
+    color: var(--color-action-on-primary);
+  }
 }

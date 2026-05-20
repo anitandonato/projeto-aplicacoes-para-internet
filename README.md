@@ -366,3 +366,75 @@ document.addEventListener("keydown", (event) => {
 - Semântica HTML5 aplicada corretamente
 - Mobile-First utilizando min-width
 - Sem uso de frameworks externos
+
+# Aula 11 — Auditoria de Responsividade
+
+Projeto auditado em `20-05-2026` com base no documento `aula11-responsive-challenge-auditoria-evolucao-atividade-pratica.pdf`.
+
+## Checklist Técnico
+
+| # | Item de verificação | Breakpoint | Status | Evidência técnica |
+|---|---|---|---|---|
+| 01 | Nenhum scroll horizontal aparece em 360px | 360px | OK | Layout usa `max-width`, grid responsivo e `body { overflow-x: clip; }` como proteção adicional. |
+| 02 | Todo texto é legível sem zoom em 360px (mín. 14px computado) | 360px | OK | `--font-size-xs` foi elevado para `0.875rem` e `--font-size-sm` para `0.9375rem`, eliminando textos abaixo de 14px. |
+| 03 | Botões e links têm área de toque mínima de 44x44px | 360px | OK | `.btn`, `.logo`, `.nav__link`, `.nav-toggle-label`, `.footer__link` e `.social__link` usam `min-height: 44px`. |
+| 04 | Imagens não transbordam o container em nenhum breakpoint | todos | OK | Placeholders usam `width: 100%`, `max-width` e `aspect-ratio`; mídia global herda `max-width: 100%`. |
+| 05 | O layout se adapta (não apenas encolhe) em 768px | 768px | OK | Header muda para linha, footer vira 2 colunas e a seção `sobre` vira grid em 2 colunas. |
+| 06 | Navegação é utilizável em 768px landscape (1024x768) | 1024px | OK | Navegação horizontal com áreas de toque mínimas e CTA destacado; toggle mobile não interfere no desktop. |
+| 07 | Linhas de texto têm no máximo 75 caracteres em desktop | 1200px | OK | Hero limita a `55ch` e a área de conteúdo de `sobre` foi limitada a `65ch`. |
+| 08 | O conteúdo tem `max-width` definido para telas acima de 1400px | 1440px | OK | `.container` usa `max-width: var(--container-max-width)` com valor de `1200px`. |
+| 09 | Elementos com `:hover` têm fallback para touch | todos | OK | Estados de hover foram restringidos a `@media (hover: hover) and (pointer: fine)`; conteúdo não depende de hover para aparecer. |
+| 10 | Nenhum elemento tem largura ou altura fixa que cause quebra | todos | OK | O layout prioriza `max-width`, `grid`, `flex` e tamanhos relativos; larguras fixas existentes só aparecem como limites controlados. |
+| 11 | O `font-size` base é proporcional ao viewport (ou tem escala fluida) | todos | OK | `html` agora usa `font-size: clamp(16px, 0.8vw + 0.35rem, 20px)`. |
+| 12 | Formulários são utilizáveis em mobile sem zoom de input | 360px | OK | O projeto não possui formulário textual nesta etapa, e a base já protege inputs com `font-size: max(16px, 1rem)`. |
+
+## Problemas Encontrados e Correções Aplicadas
+
+| Item | Problema identificado | Causa provável | Correção aplicada |
+|---|---|---|---|
+| 02 | Textos secundários e labels estavam abaixo de 14px. | Tokens tipográficos `xs` e `sm` muito pequenos para mobile. | Reajuste dos tokens para piso acessível em `css/tokens/typography.css`. |
+| 03 | Links do menu e links do footer não garantiam 44px de área de toque. | Elementos interativos sem altura mínima explícita. | Inclusão de `min-height: 44px` e alinhamento com `inline-flex`. |
+| 09 | Estados `:hover` podiam ficar “órfãos” em dispositivos touch. | Hover aplicado indiscriminadamente em qualquer tipo de ponteiro. | Hover limitado a dispositivos com `hover` e `pointer: fine`. |
+| 11 | A base tipográfica ainda era fixa em `100%`. | `html` sem escala fluida de viewport. | `clamp()` aplicado na raiz para atender legibilidade e telas amplas. |
+
+## Evolução Arquitetural Implementada
+
+### `@layer` no ponto de entrada
+
+O arquivo [css/main.css](C:\Users\itsma\OneDrive\Documentos\GitHub\API_P8_2\aula_4\projeto-aplicacoes-para-internet\css\main.css) passou a declarar camadas explícitas:
+
+- `tokens`
+- `reset`
+- `base`
+- `layout`
+- `components`
+- `utilities`
+
+Isso reduz conflitos de especificidade e alinha o projeto ao caminho A da aula.
+
+### `@container` no grid de serviços
+
+O grid de cards em [css/components/card.css](C:\Users\itsma\OneDrive\Documentos\GitHub\API_P8_2\aula_4\projeto-aplicacoes-para-internet\css\components\card.css) agora declara:
+
+- `container-type: inline-size`
+- `container-name: services-grid`
+
+E o card em destaque responde ao contexto do próprio container:
+
+```css
+@container services-grid (min-width: 42rem) {
+  .card--destaque {
+    grid-column: span 2;
+  }
+}
+```
+
+## Demanda do Cliente Abordada
+
+- Legibilidade em telas grandes: atendida com escala fluida na raiz usando `clamp()`.
+- Navegação por teclado visível: atendida com `:focus-visible` reforçado e com o toggle mobile permanecendo focável no mobile.
+
+## Entrega manual (via BB)
+
+- Screenshot comparativo “antes/depois” do componente responsivo.
+- Validação visual no DevTools em `360px`, `768px`, `1024px` e `1440px` antes da apresentação.

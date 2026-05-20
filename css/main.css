@@ -3,18 +3,21 @@
    Apenas importa tokens e camadas em ordem de precedência
    ===================================================== */
 
-@import "./tokens/primitives.css";
-@import "./tokens/semantic.css";
-@import "./tokens/spacing.css";
-@import "./tokens/typography.css";
+@layer tokens, reset, base, layout, components, utilities;
 
-@import "./reset.css";
-@import "./base.css";
-@import "./layout.css";
-@import "./utilities.css";
+@import "./tokens/primitives.css" layer(tokens);
+@import "./tokens/semantic.css" layer(tokens);
+@import "./tokens/spacing.css" layer(tokens);
+@import "./tokens/typography.css" layer(tokens);
 
-@import "./components/nav.css";
-@import "./components/hero.css";
-@import "./components/card.css";
-@import "./components/sobre.css";
-@import "./components/footer.css";
+@import "./reset.css" layer(reset);
+@import "./base.css" layer(base);
+@import "./layout.css" layer(layout);
+
+@import "./components/nav.css" layer(components);
+@import "./components/hero.css" layer(components);
+@import "./components/card.css" layer(components);
+@import "./components/sobre.css" layer(components);
+@import "./components/footer.css" layer(components);
+
+@import "./utilities.css" layer(utilities);

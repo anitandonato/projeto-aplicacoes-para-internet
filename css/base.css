@@ -5,7 +5,8 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 100%;
+  font-size: clamp(16px, 0.8vw + 0.35rem, 20px);
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Headings usam a família tipográfica de display */
@@ -42,8 +43,10 @@ a {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-label:focus-visible {
-  outline: var(--border-width-md) solid var(--color-brand);
+label:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: var(--border-width-md) solid var(--color-action-primary);
   outline-offset: var(--focus-ring-offset);
   border-radius: var(--radius-sm);
 }
@@ -54,4 +57,5 @@ select,
 textarea {
   width: 100%;
   box-sizing: border-box;
+  font-size: max(16px, 1rem);
 }

@@ -30,15 +30,12 @@
 .logo {
   display: flex;
   align-items: center;
+  min-height: 44px;
   gap: var(--space-2);
   font-family: var(--font-family-heading);
   font-size: var(--font-size-md);
   color: var(--color-text);
   transition: color var(--transition-fast);
-}
-
-.logo:hover {
-  color: var(--color-brand);
 }
 
 .logo__icone {
@@ -52,12 +49,24 @@
 
 /* === HAMBURGUER — oculto em desktop === */
 .nav-toggle {
-  display: none;
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .nav-toggle-label {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   gap: var(--nav-toggle-gap);
   cursor: pointer;
   padding: var(--space-2);
@@ -83,15 +92,14 @@
 }
 
 .nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   padding: var(--nav-link-padding-block) var(--space-2);
   border-radius: var(--radius-sm);
   transition: color var(--transition-fast);
-}
-
-.nav__link:hover {
-  color: var(--color-action-primary);
 }
 
 /* Modificador BEM — link de agendamento (CTA) */
@@ -103,13 +111,12 @@
   font-weight: var(--font-weight-bold);
 }
 
-.nav__link--cta:hover {
-  background-color: var(--color-action-primary-hover);
-  color: var(--color-action-on-primary);
-}
-
 /* === TABLET: >= 768px === */
 @media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+
   .header {
     flex-direction: row;
     justify-content: space-between;
@@ -126,6 +133,12 @@
 
 /* === HAMBURGUER: apenas mobile (< 768px) === */
 @media (max-width: 767px) {
+  .nav-toggle:focus-visible + .nav-toggle-label {
+    outline: var(--border-width-md) solid var(--color-action-primary);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--radius-sm);
+  }
+
   .nav-toggle-label {
     display: flex;
     position: absolute;
@@ -174,5 +187,20 @@
   .nav__link {
     padding: var(--space-2) 0;
     width: 100%;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo:hover {
+    color: var(--color-brand);
+  }
+
+  .nav__link:hover {
+    color: var(--color-action-primary);
+  }
+
+  .nav__link--cta:hover {
+    background-color: var(--color-action-primary-hover);
+    color: var(--color-action-on-primary);
   }
 }

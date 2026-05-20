@@ -25,6 +25,7 @@ body {
   font-size: var(--font-size-base, 1rem);
   color: var(--color-text);
   background-color: var(--color-bg);
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
