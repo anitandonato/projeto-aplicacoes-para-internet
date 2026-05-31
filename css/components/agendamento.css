@@ -1,0 +1,153 @@
+/* =====================================================
+   components/agendamento.css — Seção de Agendamento
+   Formulário dark-theme | Mobile-first
+   ===================================================== */
+
+.agendamento {
+  padding: var(--space-12) var(--space-4);
+  background-color: var(--color-bg);
+}
+
+/* Em página dedicada, ocupa o espaço vertical disponível */
+.agendamento--pagina {
+  min-height: calc(100vh - var(--header-height));
+  padding-block: var(--space-20);
+}
+
+.agendamento .container {
+  text-align: center;
+}
+
+/* === FORMULÁRIO === */
+.agendamento__form {
+  max-width: 600px;
+  margin-inline: auto;
+  margin-top: var(--space-8);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* === GRUPOS DE CAMPO === */
+.form__grupo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Data + Horário lado a lado */
+.form__linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+@media (max-width: 480px) {
+  .form__linha {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === LABELS === */
+.form__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.form__label-opcional {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+}
+
+/* === INPUTS, SELECTS E TEXTAREA === */
+.form__input,
+.form__select,
+.form__textarea {
+  background-color: var(--color-surface-alt);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  padding: var(--space-3) var(--space-4);
+  font-family: inherit;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  /* Integra com o tema escuro nos pickers nativos (calendário, etc.) */
+  color-scheme: dark;
+}
+
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Foco acessível com indicador de marca */
+.form__input:focus-visible,
+.form__select:focus-visible,
+.form__textarea:focus-visible {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2);
+}
+
+/* Validação inline — só dispara após interação do usuário */
+.form__input:user-invalid,
+.form__select:user-invalid,
+.form__textarea:user-invalid {
+  border-color: var(--color-danger);
+}
+
+/* === SELECT CUSTOMIZADO === */
+.form__select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaaaaa' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  padding-right: var(--space-10);
+  cursor: pointer;
+}
+
+.form__select option {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+/* === TEXTAREA === */
+.form__textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* === BOTÃO SUBMIT === */
+.form__submit {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+/* === ESTADO DE SUCESSO === */
+.form__sucesso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-12) var(--space-4);
+  text-align: center;
+}
+
+.form__sucesso-icone {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.form__sucesso-titulo {
+  font-size: var(--font-size-lg);
+  color: var(--color-brand);
+}
+
+.form__sucesso p {
+  color: var(--color-text-muted);
+  max-width: 38ch;
+  line-height: var(--line-height-loose);
+}

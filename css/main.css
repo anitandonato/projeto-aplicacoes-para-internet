@@ -17,7 +17,10 @@
 @import "./components/nav.css" layer(components);
 @import "./components/hero.css" layer(components);
 @import "./components/card.css" layer(components);
+@import "./components/depoimentos.css" layer(components);
 @import "./components/sobre.css" layer(components);
+@import "./components/agendamento.css" layer(components);
 @import "./components/footer.css" layer(components);
+@import "./components/animations.css" layer(components);
 
 @import "./utilities.css" layer(utilities);

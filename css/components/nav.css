@@ -102,6 +102,12 @@
   transition: color var(--transition-fast);
 }
 
+/* Link ativo — seção visível no viewport */
+.nav__link--ativo {
+  color: var(--color-action-primary);
+  font-weight: var(--font-weight-bold);
+}
+
 /* Modificador BEM — link de agendamento (CTA) */
 .nav__link--cta {
   background-color: var(--color-action-primary);

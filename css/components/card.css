@@ -102,5 +102,6 @@
   .card:hover {
     transform: translateY(var(--card-lift-offset));
     border-color: var(--color-brand);
+    box-shadow: 0 8px 32px rgba(201, 168, 76, 0.18);
   }
 }

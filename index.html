@@ -4,7 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Barbearia Clássica — Corte, barba e estilo com tradição e profissionalismo." />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="Barbearia Clássica" />
+    <meta property="og:description" content="Mais de 20 anos cuidando do visual dos nossos clientes com técnica, atenção e o melhor atendimento da região." />
+    <meta property="og:image"       content="/og-image.jpg" />
+
+    <!-- Favicon inline SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%82%3C/text%3E%3C/svg%3E" />
+
     <title>Barbearia Clássica</title>
+
     <!-- Google Fonts: Poppins (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,10 +44,11 @@
 
       <nav class="nav" aria-label="Navegação principal">
         <ul class="nav__lista">
-          <li><a href="#hero" class="nav__link">Início</a></li>
-          <li><a href="#servicos" class="nav__link">Serviços</a></li>
-          <li><a href="#sobre" class="nav__link">Sobre</a></li>
-          <li><a href="#contato" class="nav__link nav__link--cta">Agendar</a></li>
+          <li><a href="#hero"        class="nav__link">Início</a></li>
+          <li><a href="#servicos"    class="nav__link">Serviços</a></li>
+          <li><a href="#depoimentos" class="nav__link">Depoimentos</a></li>
+          <li><a href="#sobre"       class="nav__link">Sobre</a></li>
+          <li><a href="agendamento.html"     class="nav__link nav__link--cta">Agendar</a></li>
         </ul>
       </nav>
     </header>
@@ -55,7 +67,7 @@
             atenção e o melhor atendimento da região.
           </p>
           <a href="#servicos" class="btn btn--primario">Ver Serviços</a>
-          <a href="#contato" class="btn btn--secundario">Agendar Horário</a>
+          <a href="agendamento.html"  class="btn btn--secundario">Agendar Horário &#8594;</a>
         </div>
         <div class="hero__imagem" aria-hidden="true">
           <div class="hero__placeholder">
@@ -67,14 +79,14 @@
       <!-- ===== SERVIÇOS ===== -->
       <section id="servicos" class="servicos" aria-labelledby="servicos-titulo">
         <div class="container">
-          <h2 id="servicos-titulo" class="secao__titulo">Nossos Serviços</h2>
-          <p class="secao__subtitulo">
+          <h2 id="servicos-titulo" class="secao__titulo reveal">Nossos Serviços</h2>
+          <p class="secao__subtitulo reveal" data-delay="1">
             Tudo o que você precisa para estar sempre bem apresentado
           </p>
 
           <div class="cards-grid">
 
-            <article class="card" aria-labelledby="card-corte-titulo">
+            <article class="card reveal" data-delay="1" aria-labelledby="card-corte-titulo">
               <div class="card__icone" aria-hidden="true">✂</div>
               <h3 id="card-corte-titulo" class="card__titulo">Corte de Cabelo</h3>
               <p class="card__descricao">
@@ -82,10 +94,10 @@
                 ao corte social, o estilo que você quiser.
               </p>
               <p class="card__preco">A partir de <strong>R$ 35</strong></p>
-              <a href="#contato" class="btn btn--card">Agendar</a>
+              <a href="agendamento.html" class="btn btn--card">Agendar</a>
             </article>
 
-            <article class="card" aria-labelledby="card-barba-titulo">
+            <article class="card reveal" data-delay="2" aria-labelledby="card-barba-titulo">
               <div class="card__icone" aria-hidden="true">🪒</div>
               <h3 id="card-barba-titulo" class="card__titulo">Barba</h3>
               <p class="card__descricao">
@@ -93,10 +105,10 @@
                 profissional com navalha e produtos premium.
               </p>
               <p class="card__preco">A partir de <strong>R$ 25</strong></p>
-              <a href="#contato" class="btn btn--card">Agendar</a>
+              <a href="agendamento.html" class="btn btn--card">Agendar</a>
             </article>
 
-            <article class="card card--destaque" aria-labelledby="card-combo-titulo">
+            <article class="card card--destaque reveal" data-delay="3" aria-labelledby="card-combo-titulo">
               <span class="card__badge">Mais Popular</span>
               <div class="card__icone" aria-hidden="true">💈</div>
               <h3 id="card-combo-titulo" class="card__titulo">Combo Completo</h3>
@@ -105,7 +117,69 @@
                 experiência completa da barbearia por um preço especial.
               </p>
               <p class="card__preco">A partir de <strong>R$ 55</strong></p>
-              <a href="#contato" class="btn btn--primario">Agendar</a>
+              <a href="agendamento.html" class="btn btn--primario">Agendar</a>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== DEPOIMENTOS ===== -->
+      <section id="depoimentos" class="depoimentos" aria-labelledby="depoimentos-titulo">
+        <div class="container">
+          <h2 id="depoimentos-titulo" class="secao__titulo reveal">O Que Dizem Nossos Clientes</h2>
+          <p class="secao__subtitulo reveal" data-delay="1">
+            Mais de 5.000 clientes satisfeitos nos escolheram
+          </p>
+
+          <div class="depoimentos__grid">
+
+            <article class="depoimento reveal" data-delay="1" aria-label="Depoimento de João M.">
+              <div class="depoimento__estrelas" aria-label="Avaliação: 5 de 5 estrelas">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <blockquote class="depoimento__texto">
+                Melhor barbearia da região! Fui pela primeira vez indicado por um amigo e virei cliente fixo. Atendimento impecável e corte perfeito toda vez.
+              </blockquote>
+              <footer class="depoimento__autor">
+                <div class="depoimento__avatar" aria-hidden="true">JM</div>
+                <div>
+                  <p class="depoimento__nome">João M.</p>
+                  <p class="depoimento__cargo">Cliente há 3 anos</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="depoimento reveal" data-delay="2" aria-label="Depoimento de Carlos S.">
+              <div class="depoimento__estrelas" aria-label="Avaliação: 5 de 5 estrelas">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <blockquote class="depoimento__texto">
+                Ambiente incrível, profissionais competentes e preço justo. O combo completo vale muito a pena. Saio sempre satisfeito e com a autoestima renovada.
+              </blockquote>
+              <footer class="depoimento__autor">
+                <div class="depoimento__avatar" aria-hidden="true">CS</div>
+                <div>
+                  <p class="depoimento__nome">Carlos S.</p>
+                  <p class="depoimento__cargo">Cliente há 5 anos</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="depoimento reveal" data-delay="3" aria-label="Depoimento de Rafael A.">
+              <div class="depoimento__estrelas" aria-label="Avaliação: 5 de 5 estrelas">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <blockquote class="depoimento__texto">
+                Profissionais excelentes que realmente entendem o que você quer. Nunca saí insatisfeito. A barbearia tem um charme especial que faz você querer voltar sempre.
+              </blockquote>
+              <footer class="depoimento__autor">
+                <div class="depoimento__avatar" aria-hidden="true">RA</div>
+                <div>
+                  <p class="depoimento__nome">Rafael A.</p>
+                  <p class="depoimento__cargo">Cliente há 2 anos</p>
+                </div>
+              </footer>
             </article>
 
           </div>
@@ -115,12 +189,12 @@
       <!-- ===== SOBRE ===== -->
       <section id="sobre" class="sobre" aria-labelledby="sobre-titulo">
         <div class="container sobre__grid">
-          <div class="sobre__imagem" aria-hidden="true">
+          <div class="sobre__imagem reveal" aria-hidden="true">
             <div class="sobre__placeholder">
               <span aria-hidden="true">💈</span>
             </div>
           </div>
-          <div class="sobre__conteudo">
+          <div class="sobre__conteudo reveal" data-delay="1">
             <h2 id="sobre-titulo" class="secao__titulo">Sobre a Barbearia</h2>
             <p>
               Fundada há mais de duas décadas, a Barbearia Clássica nasceu com a
@@ -144,8 +218,8 @@
 
     </main>
 
-    <!-- ===== FOOTER / CONTATO ===== -->
-    <footer id="contato" class="footer" aria-labelledby="footer-titulo">
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" aria-labelledby="footer-titulo">
       <div class="container footer__grid">
         <div class="footer__info">
           <h2 id="footer-titulo" class="footer__titulo">Fale Conosco</h2>
@@ -157,7 +231,10 @@
         </div>
 
         <div class="footer__horario">
-          <h3 class="footer__subtitulo">Horário de Funcionamento</h3>
+          <h3 class="footer__subtitulo">
+            Horário de Funcionamento
+            <span id="status-funcionamento" aria-live="polite"></span>
+          </h3>
           <dl class="horario">
             <dt>Segunda a Sexta</dt>
             <dd>09h às 19h</dd>
@@ -181,9 +258,10 @@
       </div>
 
       <div class="footer__rodape">
-        <p>© 2025 Barbearia Clássica.</p>
+        <p>© <span class="footer__ano">2025</span> Barbearia Clássica.</p>
       </div>
     </footer>
 
+    <script src="js/main.js" defer></script>
   </body>
 </html>
