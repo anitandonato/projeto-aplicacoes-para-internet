@@ -53,27 +53,18 @@
   text-align: center;
 }
 
-/* === IMAGEM PLACEHOLDER === */
+/* === VÍDEO === */
 .hero__imagem {
   width: 100%;
   max-width: var(--hero-media-max-width);
 }
 
-.hero__placeholder {
+.hero__video {
   width: 100%;
   aspect-ratio: 1;
-  background-color: var(--color-surface-alt);
-  border: var(--hero-placeholder-border-width) solid var(--color-border);
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero__placeholder-icone {
-  font-size: var(--hero-icon-size);
-  color: var(--color-brand);
-  opacity: var(--hero-icon-opacity);
+  object-fit: cover;
+  display: block;
 }
 
 /* === TABLET: >= 768px === */

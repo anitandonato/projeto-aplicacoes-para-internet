@@ -44,23 +44,17 @@
   font-size: var(--font-size-base);
 }
 
-/* === IMAGEM PLACEHOLDER === */
+/* === FOTO === */
 .sobre__imagem {
   width: 100%;
 }
 
-.sobre__placeholder {
+.sobre__foto {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background-color: var(--color-surface-alt);
-  border: var(--sobre-placeholder-border-width) solid var(--color-border);
+  object-fit: cover;
   border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--sobre-placeholder-icon-size);
-  color: var(--color-brand);
-  opacity: var(--sobre-placeholder-icon-opacity);
+  display: block;
 }
 
 /* === TABLET: >= 768px — 2 colunas === */

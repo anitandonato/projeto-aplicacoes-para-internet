@@ -12,11 +12,35 @@
   --card-badge-padding-block: 0.2rem;
   --card-badge-padding-inline: var(--space-3);
 
+  position: relative;
+  overflow: hidden;
   padding: var(--space-12) var(--space-4);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface); /* fallback sem vídeo */
 }
 
+/* Vídeo de fundo */
+.servicos__video-fundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay escuro para legibilidade do conteúdo */
+.servicos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* Conteúdo acima do vídeo e overlay */
 .servicos .container {
+  position: relative;
+  z-index: 2;
   text-align: center;
 }
 
